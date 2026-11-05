@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dwhcore"
+version = "0.0.1"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+description = "Definitely Won't Help Core. A library that does nothing, on purpose."
+readme = "README.md"
+keywords = ["placeholder", "namespace", "noop", "nothing"]
+classifiers = [
+    "Development Status :: 7 - Inactive",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "packaging>=24",
+    "pytest>=8",
+    "ruff>=0.16",
+]
+
+[project.urls]
+Homepage = "https://github.com/dabruehl/dwhcore"
+Repository = "https://github.com/dabruehl/dwhcore"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+dwhcore = ["py.typed"]
+
+[tool.ruff]
+line-length = 88
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "D", "T20", "G", "LOG", "TRY", "BLE", "B904"]
+ignore = ["D100", "D104", "TRY003", "TRY300"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
